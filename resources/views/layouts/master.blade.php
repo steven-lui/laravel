@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="bg-black text-white">
+<body>
     <header>
         {{-- <div class="burger hidden">
             <button class="hamburger hamburger--spin outline outline-white rounded-full" type="button">
@@ -23,7 +23,7 @@
         <nav class="hidden lg:block outline outline-2 py-4">
             <ul class="flex w-5/6 m-auto">
                 <li class="grow">
-                    <x-header.button url="{{ url('index') }}" name="Home" />
+                    <x-header.button url="{{ url('/') }}" name="Home" />
                 </li>
                 @guest
                     <li>
@@ -45,7 +45,7 @@
         </nav>
     </header>
 
-    <main class="w-5/6 m-auto">
+    <main class="w-5/6 m-auto pt-4">
         @yield('content')
     </main>
 </body>
