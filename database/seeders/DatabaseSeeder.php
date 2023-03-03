@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
 
         Company::factory(10)->create();
 
-        Employee::factory(100)->create();
+        Employee::factory(30)->create();
     }
 }
