@@ -25,14 +25,6 @@
                 <li class="grow">
                     <x-header.button url="{{ url('/') }}" name="Home" />
                 </li>
-                @guest
-                    <li>
-                        <x-header.button url="" name="Sign In" />
-                    </li>
-                    <li>
-                        <x-header.button url="" name="Register" />
-                    </li>
-                @endguest
                 @auth
                     <li>
                         <x-header.button url="" name="Dashboard" />

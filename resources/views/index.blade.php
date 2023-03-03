@@ -40,7 +40,7 @@
                     <img src="{{ $company->logo }}">
                 </td>
                 <td>
-                    <a href="{{ $company->website }}" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ $company->website }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
                         <?php
                         echo parse_url($company->website)['host'];
                         ?>
