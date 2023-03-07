@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -24,12 +26,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/companies', function () {
-    return view('companies', ['companies' => DB::table('companies')->get()]);
+    return view('companies', ['companies' => Company::all()]);
 })->middleware(['auth', 'verified'])->name('companies');
 
 Route::get('/employees', function () {
-    abort(404);
-    return view('employees');
+    return view('employees', ['employees' => Employee::all()]);
 })->middleware(['auth', 'verified'])->name('employees');
 
 Route::middleware('auth')->group(function () {
