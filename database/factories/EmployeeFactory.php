@@ -18,8 +18,8 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => fake()->name(),
-            'last_name' => fake()->name(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
             'company_id' => DB::table('companies')->pluck('id')->random(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
