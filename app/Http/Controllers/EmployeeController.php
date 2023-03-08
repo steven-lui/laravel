@@ -14,9 +14,6 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        /* Post::latest()->filter(
-            request(['search', 'category', 'author'])
-            )->paginate(18)->withQueryString() */
         return view('index', [
             'title' => __('Employees'),
             'columns' => ['First Name', 'Last Name', 'Company', 'Email', 'Phone'],
