@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Company;
@@ -26,9 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/companies', function () {
-    return view('companies', ['companies' => Company::all()]);
-})->middleware(['auth', 'verified'])->name('companies');
+Route::get('companies', [CompanyController::class, 'index'])->middleware(['auth', 'verified'])->name('companies');
 
 Route::get('employees', [EmployeeController::class, 'index'])->middleware(['auth', 'verified'])->name('employees');
 

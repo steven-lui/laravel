@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -11,7 +12,11 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return view('index', [
+            'title' => __('Companies'),
+            'columns' => ['Name', 'Email', 'Logo', 'Website'],
+            'data' => Company::paginate(10, ['name', 'email', 'logo', 'website']),
+        ]);
     }
 
     /**
