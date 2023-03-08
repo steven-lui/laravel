@@ -13,7 +13,7 @@ class CompanyController extends Controller
     public function index()
     {
         return view('index', [
-            'title' => __('Companies'),
+            'header' => __('Companies'),
             'columns' => ['Name', 'Email', 'Logo', 'Website'],
             'data' => Company::paginate(10, ['name', 'email', 'logo', 'website']),
         ]);
