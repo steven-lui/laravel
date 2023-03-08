@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Company;
 use App\Models\Employee;
@@ -29,9 +30,7 @@ Route::get('/companies', function () {
     return view('companies', ['companies' => Company::all()]);
 })->middleware(['auth', 'verified'])->name('companies');
 
-Route::get('/employees', function () {
-    return view('employees', ['employees' => Employee::all()]);
-})->middleware(['auth', 'verified'])->name('employees');
+Route::get('employees', [EmployeeController::class, 'index'])->middleware(['auth', 'verified'])->name('employees');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
