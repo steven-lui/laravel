@@ -11,9 +11,9 @@
                 <x-table.cell>{{ $value }}</x-table.cell>
             @endforeach
 
-            {{-- EDIT/DELETE --}}
-            <x-table.edit url="/edit" />
-            <x-table.delete url="/delete" />
+            <x-table.clickable url="/view" color="gray" text="View" />
+            <x-table.clickable url="/edit" color="green" text="Edit" />
+            <x-table.clickable url="/delete" color="red" text="Delete" />
         </tr>
     @endforeach
 </table>
