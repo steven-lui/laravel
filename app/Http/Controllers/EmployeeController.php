@@ -13,9 +13,8 @@ class EmployeeController extends Controller
     public function index()
     {
         return view('index', [
-            'header' => __('Employees'),
-            'columns' => ['First Name', 'Last Name', 'Company', 'Email', 'Phone'],
-            'data' => Employee::paginate(10, ['first_name', 'last_name', 'company_id', 'email', 'phone']),
+            'page' => 'employees',
+            'data' => Employee::paginate(10, ['id', 'first_name', 'last_name', 'company_id', 'email', 'phone']),
         ]);
     }
 
@@ -40,7 +39,9 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('show', [
+            'data' => Employee::where('id', $id)->get()[0],
+        ]);
     }
 
     /**

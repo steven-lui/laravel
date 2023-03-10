@@ -13,9 +13,8 @@ class CompanyController extends Controller
     public function index()
     {
         return view('index', [
-            'header' => __('Companies'),
-            'columns' => ['Name', 'Email', 'Logo', 'Website'],
-            'data' => Company::paginate(10, ['name', 'email', 'logo', 'website']),
+            'page' => 'companies',
+            'data' => Company::paginate(10, ['id', 'name', 'email', 'logo', 'website']),
         ]);
     }
 
@@ -40,7 +39,9 @@ class CompanyController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('show', [
+            'data' => Company::where('id', $id)->get()[0],
+        ]);
     }
 
     /**
