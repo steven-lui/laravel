@@ -24,14 +24,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('companies', [CompanyController::class, 'index'])->middleware(['auth', 'verified'])->name('companies');
-
-Route::get('employees', [EmployeeController::class, 'index'])->middleware(['auth', 'verified'])->name('employees');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
+
+    Route::get('/employees', [EmployeeController::class, 'index'])->name('employees');
+    Route::get('/employees/{employee:id}/view', [EmployeeController::class, 'show']);
 });
 
 require __DIR__ . '/auth.php';
